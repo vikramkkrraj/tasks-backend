@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Group Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Real-Time Chat</h2>
+  <div id="users"></div>
+  <div id="chat"></div>
+  <input id="msg" placeholder="Type a message..." />
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="disconnectUser()">Disconnect</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
