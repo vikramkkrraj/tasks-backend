@@ -11,13 +11,11 @@ exports.register = async (req, res) => {
 
 exports.login = async (req,res) => {
     const {email, password } = req.body;
-    const user = User.findOne({ email });
-    if(!user) {
+    const user = await User.findOne({ email });
+    if(!user || !await bcrypt.compare(password,user.password) ){
         return res.status(404).json({ message : "invalid email"});
     };
-    if(!await bcrypt.compare(password,user.password)) {
-        return res.status(401).json( { message : "invalid password"})
-    }
+    
 
     const token = jwt.sign({ id : user._id }, process.env.JWT_SECRET , { expiresIn : '1d'});
 
