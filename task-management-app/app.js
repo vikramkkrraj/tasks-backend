@@ -10,5 +10,7 @@ app.use(express.json());
 app.use(logger);
 
 app.use("/api/auth", require('./routes/authRoutes'));
+app.use("/api/tasks", require("./routes/taskRoutes"));
+app.use("/api/admin", require('./routes/adminRoutes'));
 
 module.exports = app;

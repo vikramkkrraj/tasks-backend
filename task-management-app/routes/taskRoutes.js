@@ -4,8 +4,7 @@ const auth = require('../middlewares/authMiddleware');
 const rateLimiter = require('../middlewares/rateLimiter');
 
 const {
-  createTask, getUserTasks, markCompleted, deleteTask
-} = require('../controllers/taskController');
+  createTask, getUserTasks, markCompleted, deleteTask } = require('../controllers/taskControllers');
 
 router.post('/', auth, createTask);
 router.get('/', auth, rateLimiter, getUserTasks);
